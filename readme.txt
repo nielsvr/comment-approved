@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This plugin will sent out a customizable notification to a user that has left an comment on your site after approval of the comment.
+ This WordPress plugin will sent out a customizable notification to a user that has left an comment on your site after approval of the comment. It's a tiny plugin which I hope to expand in the near future. Let me know if you miss something.
 
 == Installation ==
 

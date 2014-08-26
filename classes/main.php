@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: WP Manage Tables
+ * Title: Comment approved
  * Description: Main functions
  * Company: Media-Enzo
  * @author Niels van Renselaar

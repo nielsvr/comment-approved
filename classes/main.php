@@ -52,30 +52,38 @@ class Comment_Approved {
 	public function settings() {
 	
 		$updated = false;
+		
+		if( isset($_POST['comment_approved_settings']) && !wp_verify_nonce( $_POST['_wpnonce'], 'comment_approved_settings' ) ) {
+		
+			die("Could not verify nonce");
+			
+		} else {
 	
-		if(isset($_POST['comment_approved_settings'])) {
-			
-			$message = esc_html( $_POST['comment_approved_message']);
-			
-			update_option("comment_approved_message", $message);
-			
-			if(isset($_POST['comment_approved_enable'])) {
-				update_option("comment_approved_enable", 1);
-			} else {
-				update_option("comment_approved_enable", 0);
+			if(isset($_POST['comment_approved_settings'])) {
+				
+				$message = esc_html( $_POST['comment_approved_message']);
+				
+				update_option("comment_approved_message", $message);
+				
+				if(isset($_POST['comment_approved_enable'])) {
+					update_option("comment_approved_enable", 1);
+				} else {
+					update_option("comment_approved_enable", 0);
+				}
+				
+				$updated = true;
+				
 			}
 			
-			$updated = true;
+			$message = get_option("comment_approved_message");
+		    $enable = get_option("comment_approved_enable");
 			
-		}
+			if( empty( $message ) ) {
+				
+				$message = $this->default_notification;
+				
+			}
 		
-		$message = get_option("comment_approved_message");
-	    $enable = get_option("comment_approved_enable");
-		
-		if( empty( $message ) ) {
-			
-			$message = $this->default_notification;
-			
 		}
 		
 		?>

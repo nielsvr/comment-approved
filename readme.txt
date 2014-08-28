@@ -4,7 +4,7 @@ Donate link:
 Tags: comment, approved, notifcation, message, approval
 Requires at least: 3.0.0
 Tested up to: 4.0
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 1. The settings screen
 
 == Changelog ==
+
+= 1.2 =
+* This is a security fix. Please update
 
 = 1.1 =
 * Translation error fixed

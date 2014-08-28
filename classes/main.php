@@ -38,7 +38,7 @@ class Comment_Approved {
     
     public function add_default_settings() {
 	    
-	    add_submenu_page( 'options-general.php',  __("Command approved", 'ca'), __("Comment approved", 'ca'), "manage_options", 'comment_approved-settings', array( &$this, 'settings'), 'dashicons-admin-tools' );
+	    add_submenu_page( 'options-general.php',  __("Comment approved", 'ca'), __("Comment approved", 'ca'), "manage_options", 'comment_approved-settings', array( &$this, 'settings'), 'dashicons-admin-tools' );
 	    
     }
 	
@@ -93,7 +93,7 @@ class Comment_Approved {
 			<p><?php _e('This notification is sent to the user that has left the comment, after you approve an comment. The message is not sent to comments that has been approved before.'); ?></p>
 		
 			<blockquote>
-				Available shortcodes: %permalink%, %name%
+				<?php _e("Available shortcodes: %permalink%, %name%"); ?>
 			</blockquote>
 			
 			<form  method="post">
@@ -155,7 +155,7 @@ class Comment_Approved {
 					$notification = str_replace("%name%", $comment_author, $notification);
 					$notification = str_replace("%permalink%", get_permalink( $comment_post_ID ), $notification );
 		        	
-		        	wp_mail( $comment_author_email, "Comment approved", $notification );
+		        	wp_mail( $comment_author_email, __("Comment approved"), $notification );
 		        	
 	        	}
 	        }

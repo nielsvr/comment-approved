@@ -4,13 +4,15 @@ Donate link:
 Tags: comment, approved, notifcation, message, approval
 Requires at least: 3.0.0
 Tested up to: 4.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
  This WordPress plugin will sent out a customizable notification to a user that has left an comment on your site after approval of the comment. It's a tiny plugin which I hope to expand in the near future. Let me know if you miss something.
+
+Icon by Max Steenbergen / maxsteenbergen.com
 
 == Installation ==
 
@@ -23,6 +25,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 1. The settings screen
 
 == Changelog ==
+
+= 1.2.1 =
+* Added plugin icons. Credits for Max Steenbergen / maxsteenbergen.com
 
 = 1.2 =
 * This is a security fix. Please update

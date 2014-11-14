@@ -25,6 +25,7 @@ class Comment_Approved {
 		add_action('transition_comment_status', array( &$this, 'approve_comment_callback'), 10, 3);
 		
 		$this->default_notification = "Hi %name%,\n\nThanks for your comment! It has been approved. To view the post, look at the link below.\n\n%permalink%";
+		$this->default_subject = __("Comment approved", "ca");
 			
 			
 	}
@@ -62,8 +63,10 @@ class Comment_Approved {
 			if(isset($_POST['comment_approved_settings'])) {
 				
 				$message = esc_html( $_POST['comment_approved_message']);
+				$subject = esc_html( $_POST['comment_approved_subject']);
 				
 				update_option("comment_approved_message", $message);
+				update_option("comment_approved_subject", $subject);
 				
 				if(isset($_POST['comment_approved_enable'])) {
 					update_option("comment_approved_enable", 1);
@@ -76,11 +79,18 @@ class Comment_Approved {
 			}
 			
 			$message = get_option("comment_approved_message");
+			$subject = get_option("comment_approved_subject");
 		    $enable = get_option("comment_approved_enable");
 			
 			if( empty( $message ) ) {
 				
 				$message = $this->default_notification;
+				
+			}
+			
+			if( empty( $subject ) ) {
+				
+				$subject = $this->default_subject ;
 				
 			}
 		
@@ -111,6 +121,12 @@ class Comment_Approved {
 				<table class="form-table" id="wp-comment-approved-settings">
 					
 					
+					<tr class="default-row">
+						<th><label><?php _e("Subject", 'ca'); ?></label></th>
+						<td>
+							<input type="text" name="comment_approved_subject" value="<?php echo $subject; ?>" />
+						</td>
+					</tr>
 					<tr class="default-row">
 						<th><label><?php _e("Message", 'ca'); ?></label></th>
 						<td>
@@ -150,6 +166,7 @@ class Comment_Approved {
 	        	$comment_post_ID = $comment->comment_post_ID;
 	        	
 	        	$notification = get_option("comment_approved_message");
+	        	$subject = get_option("comment_approved_subject");
 	        	$enable = get_option("comment_approved_enable");
 	        	
 	        	if( $enable == 1 ) {
@@ -159,11 +176,20 @@ class Comment_Approved {
 						$notification = $this->default_notification;
 						
 					}
+	        	
+		        	if( empty( $subject ) ) {
+				
+						$subject = $this->default_subject;
+						
+					}
 					
 					$notification = str_replace("%name%", $comment_author, $notification);
 					$notification = str_replace("%permalink%", get_permalink( $comment_post_ID ), $notification );
+					
+					$subject = str_replace("%name%", $comment_author, $subject);
+					$subject = str_replace("%permalink%", get_permalink( $comment_post_ID ), $subject );
 		        	
-		        	wp_mail( $comment_author_email, __("Comment approved"), $notification );
+		        	wp_mail( $comment_author_email, $subject, $notification );
 		        	
 	        	}
 	        }

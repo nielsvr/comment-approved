@@ -26,6 +26,13 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 == Changelog ==
 
+= 1.4.2 =
+* Updated the translations to support the upcoming translation packs for plugins
+* Added a .pot file for custom translations
+
+= 1.4.1 =
+* Fixed an translation issue, sorry!
+
 = 1.4 =
 * Simplify the codebase thanks to kasparsd
 * Enable notifications if Jetpack Comments are detected since they don't support the opt-in checkbox

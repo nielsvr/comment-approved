@@ -13,11 +13,11 @@ class CommentApproved {
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
 
-		$this->default_notification = __( "Hi [name],\n\nThanks for your comment! It has been approved. To view the post, look at the link below.\n\n[permalink]", 'ca' );
+		$this->default_notification = __( "Hi [name],\n\nThanks for your comment! It has been approved. To view the post, look at the link below.\n\n[permalink]", 'comment-approved' );
 		$this->default_subject = sprintf(
 			'[%s] %s',
 			get_bloginfo( 'name' ),
-			__( 'Your comment has been approved', 'ca' )
+			__( 'Your comment has been approved', 'comment-approved' )
 		);
 
 	}
@@ -39,8 +39,8 @@ class CommentApproved {
 		// @todo Move to settings API
 		add_submenu_page(
 			'options-general.php',
-			__( 'Comment approved', 'ca' ),
-			__( 'Comment approved', 'ca' ),
+			__( 'Comment approved', 'comment-approved' ),
+			__( 'Comment approved', 'comment-approved' ),
 			'manage_options',
 			'comment_approved-settings',
 			array( $this, 'settings' ),
@@ -99,29 +99,29 @@ class CommentApproved {
 
 			<?php if ( $updated ) : ?>
 			<div id="message" class="updated fade">
-				<p><?php esc_html_e( 'Options saved', 'ca' ) ?></p>
+				<p><?php esc_html_e( 'Options saved', 'comment-approved' ) ?></p>
 			</div>
 			<?php endif; ?>
 
-			<h1><?php esc_html_e( 'Comment approved', 'ca' ); ?></h1>
-			<p><?php esc_html_e( 'This notification is sent to comment authors after you manually approve their comment.', 'ca' ); ?></p>
+			<h1><?php esc_html_e( 'Comment approved', 'comment-approved' ); ?></h1>
+			<p><?php esc_html_e( 'This notification is sent to comment authors after you manually approve their comment.', 'comment-approved' ); ?></p>
 
 			<form method="post">
 				<?php wp_nonce_field( 'comment_approved_settings' ); ?>
 
 				<table class="form-table" id="wp-comment-approved-settings">
 					<tr class="default-row">
-						<th><label><?php esc_html_e( 'Enable', 'ca' ); ?></label></th>
+						<th><label><?php esc_html_e( 'Enable', 'comment-approved' ); ?></label></th>
 						<td>
 							<input type="checkbox" name="comment_approved_enable" value="1" <?php checked( $enable ); ?> />
-							<?php esc_html_e( 'Enable comment approved message', 'ca' ); ?>
+							<?php esc_html_e( 'Enable comment approved message', 'comment-approved' ); ?>
 						</td>
 					</tr>
 					<tr class="default-row">
-						<th><label><?php esc_html_e( 'Default state', 'ca' ); ?></label></th>
+						<th><label><?php esc_html_e( 'Default state', 'comment-approved' ); ?></label></th>
 						<td>
 							<input type="checkbox" name="comment_approved_default" value="1" <?php checked( $default ); ?> />
-							<?php esc_html_e( 'Make the checkbox checked by default on the comment form', 'ca' ); ?>
+							<?php esc_html_e( 'Make the checkbox checked by default on the comment form', 'comment-approved' ); ?>
 						</td>
 					</tr>
 					<tr class="default-row">
@@ -131,11 +131,11 @@ class CommentApproved {
 						</td>
 					</tr>
 					<tr class="default-row">
-						<th><label><?php esc_html_e( 'Message', 'ca' ); ?></label></th>
+						<th><label><?php esc_html_e( 'Message', 'comment-approved' ); ?></label></th>
 						<td>
 							<textarea cols="50" rows="10" class="large-text" name="comment_approved_message"><?php echo esc_textarea( $message ); ?></textarea>
 							<p class="help">
-								<?php esc_html_e( 'Available shortcodes:', 'ca' ); ?>
+								<?php esc_html_e( 'Available shortcodes:', 'comment-approved' ); ?>
 								<code>[permalink]</code>, <code>[name]</code>
 							</p>
 						</td>
@@ -143,7 +143,7 @@ class CommentApproved {
 					<tr class="default-row">
 						<th></th>
 						<td>
-							<input type="submit" class="button submit" name="comment_approved_settings" value="<?php esc_attr_e( 'Save', 'ca' ); ?>" />
+							<input type="submit" class="button submit" name="comment_approved_settings" value="<?php esc_attr_e( 'Save', 'comment-approved' ); ?>" />
 						</td>
 					</tr>
 				</table>
@@ -236,7 +236,7 @@ class CommentApproved {
 				</label>
 			</p>',
 			checked( $default, 1, false ),
-			esc_html__( 'Notify me by email when the comment gets approved.', 'ca' )
+			esc_html__( 'Notify me by email when the comment gets approved.', 'comment-approved' )
 		);
 
 	}
@@ -262,14 +262,14 @@ class CommentApproved {
 
 		if ( ! empty( $notify_me ) && ! empty( $notify_sent ) ) {
 			$status = sprintf(
-				__( 'Author was notified of the comment approval on %s at %s.', 'ca' ),
+				__( 'Author was notified of the comment approval on %s at %s.', 'comment-approved' ),
 				date_i18n( get_option( 'date_format' ), $notify_sent, false ),
 				date_i18n( get_option( 'time_format' ), $notify_sent, false )
 			);
 		} elseif ( ! empty( $notify_me ) ) {
-			$status = __( 'Author will be notified of the comment approval.', 'ca' );
+			$status = __( 'Author will be notified of the comment approval.', 'comment-approved' );
 		} else {
-			$status = __( 'Author did not choose to be notified of the comment approval.', 'ca' );
+			$status = __( 'Author did not choose to be notified of the comment approval.', 'comment-approved' );
 		}
 
 		$html .= sprintf(

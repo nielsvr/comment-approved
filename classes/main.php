@@ -8,7 +8,7 @@ class CommentApproved {
 	protected function __construct() {
 
 		add_action( 'admin_menu', array( $this, 'add_default_settings' ) );
-		add_action( 'transition_comment_status', array( $this, 'approve_comment_callback' ), 10, 3 );
+		add_action( 'comment_unapproved_to_approved', array( $this, 'approve_comment_callback' ), 10 );
 		add_action( 'comment_form', array( $this, 'approve_comment_optin' ), 10, 1 );
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
@@ -173,12 +173,7 @@ class CommentApproved {
 
 	}
 
-	public function approve_comment_callback( $new_status, $old_status, $comment ) {
-
-		// Notify only if the comment is approved
-		if ( $old_status === $new_status || 'approved' !== $new_status ) {
-			return;
-		}
+	public function approve_comment_callback( $comment ) {
 
 		$enable = get_option( 'comment_approved_enable', 1 );
 		$notify_me = $this->should_notify_comment_author( $comment->comment_ID );

@@ -26,6 +26,9 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 == Changelog ==
 
+= 1.4.2.1 =
+* Using a more reliable action hook
+
 = 1.4.2 =
 * Updated the translations to support the upcoming translation packs for plugins
 * Added a .pot file for custom translations

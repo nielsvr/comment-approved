@@ -3,7 +3,7 @@ Contributors: nielsvanrenselaar, kasparsd
 Donate link: 
 Tags: comment, approved, notifcation, message, approval
 Requires at least: 3.0.0
-Tested up to: 4.3
+Tested up to: 4.3.1
 Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,6 +25,9 @@ Icon by Max Steenbergen / maxsteenbergen.com
 1. The settings screen
 
 == Changelog ==
+
+= 1.4.3 =
+* Better translation handling
 
 = 1.4.2.1 =
 * Using a more reliable action hook

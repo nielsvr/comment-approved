@@ -12,6 +12,7 @@ class CommentApproved {
 		add_action( 'comment_form', array( $this, 'approve_comment_optin' ), 10, 1 );
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
+		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain') );
 
 		$this->default_notification = __( "Hi [name],\n\nThanks for your comment! It has been approved. To view the post, look at the link below.\n\n[permalink]", 'comment-approved' );
 		$this->default_subject = sprintf(
@@ -20,6 +21,15 @@ class CommentApproved {
 			__( 'Your comment has been approved', 'comment-approved' )
 		);
 
+	}
+	
+	public function load_plugin_textdomain() {
+		
+		$locale = apply_filters('plugin_locale', get_locale(), "comment-approved");
+		
+		load_textdomain( 'comment-approved', WP_LANG_DIR.'/plugins/comment-approved-'.$locale.'.mo');
+	    load_plugin_textdomain( 'comment-approved', false, 'comment-approved/languages' ); 
+	    
 	}
 
 	public static function instance() {

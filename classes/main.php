@@ -78,7 +78,7 @@ class CommentApproved {
 		$updated = false;
 
 		if ( isset( $_POST['comment_approved_settings'] ) && ! wp_verify_nonce( $_POST['_wpnonce'], 'comment_approved_settings' ) ) {
-			wp_die( 'Could not verify nonce' );
+			wp_die( __( 'Could not verify nonce', 'comment-approved' ) );
 		}
 
 		if ( isset( $_POST['comment_approved_settings'] ) ) {

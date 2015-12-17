@@ -11,6 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
+/*
+ * Comment Approved
+ * The main plugin.
+ *
+ * @since 1.0
+ */
 class CommentApproved {
 
 	private $default_notification;

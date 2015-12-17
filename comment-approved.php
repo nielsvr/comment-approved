@@ -26,6 +26,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+
+/*
+ * Comment Approved
+ * The main plugin.
+ *
+ * @since 1.0
+ */
 include dirname( __FILE__ ) . '/classes/main.php';
 
 CommentApproved::instance();

@@ -38,6 +38,14 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 == Changelog ==
 
+= 1.5 =
+* Security: Prevent direct access to php files
+* Security: Prevent direct access to directories
+* Fix global translations support
+* Delete unused css and js files
+* Add missing i18n function
+* Update plugin readme file
+
 = 1.4.3 =
 * Better translation handling
 

@@ -15,9 +15,22 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 == Installation ==
 
-1. Upload the folder `comment-approved` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The settings are accessible trough the settings menu in the sidebar
+= Installation =
+1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
+2. Search for "Open Graph Metabox".
+3. Install the plugin by pressing the "Install" button.
+4. Activate the plugin by pressing the "Activate" button.
+5. The settings are accessible trough the settings menu in the sidebar.
+
+= Minimum Requirements =
+* WordPress version 3.0 or greater.
+* PHP version 5.2.4 or greater.
+* MySQL version 5.0 or greater.
+
+= Recommended Requirements =
+* The latest WordPress version.
+* PHP version 5.6 or greater.
+* MySQL version 5.5 or greater.
 
 == Screenshots ==
 

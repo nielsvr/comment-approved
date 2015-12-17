@@ -1,4 +1,15 @@
 <?php
+/*
+ * Security check
+ * Prevent direct access to the file.
+ *
+ * @since 1.5
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
 
 class CommentApproved {
 

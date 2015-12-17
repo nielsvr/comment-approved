@@ -11,7 +11,6 @@ Author: Niels van Renselaar
 Author URI: https://nielsvr.com
 
 Text Domain: comment-approved
-Domain Path: /languages/
 
 */
 

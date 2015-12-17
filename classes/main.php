@@ -24,12 +24,9 @@ class CommentApproved {
 	}
 	
 	public function load_plugin_textdomain() {
-		
-		$locale = apply_filters('plugin_locale', get_locale(), "comment-approved");
-		
-		load_textdomain( 'comment-approved', WP_LANG_DIR.'/plugins/comment-approved-'.$locale.'.mo');
-	    load_plugin_textdomain( 'comment-approved', false, 'comment-approved/languages' ); 
-	    
+
+		load_plugin_textdomain( 'comment-approved' );
+
 	}
 
 	public static function instance() {

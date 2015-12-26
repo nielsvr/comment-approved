@@ -19,7 +19,7 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 = Installation =
 1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
-2. Search for "Open Graph Metabox".
+2. Search for "Comment Approved".
 3. Install the plugin by pressing the "Install" button.
 4. Activate the plugin by pressing the "Activate" button.
 5. The settings are accessible trough the settings menu in the sidebar.

@@ -30,6 +30,9 @@ class CommentApproved {
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain') );
+		
+		add_filter( 'option_comment_approved_subject', 'stripslashes' );
+		add_filter( 'option_comment_approved_message', 'stripslashes' );
 
 		$this->default_notification = __( "Hi [name],\n\nThanks for your comment! It has been approved. To view the post, look at the link below.\n\n[permalink]", 'comment-approved' );
 		$this->default_subject = sprintf(
@@ -83,8 +86,8 @@ class CommentApproved {
 
 		if ( isset( $_POST['comment_approved_settings'] ) ) {
 
-			$message = esc_html( $_POST['comment_approved_message'] );
-			$subject = esc_html( $_POST['comment_approved_subject'] );
+			$message = ( $_POST['comment_approved_message'] );
+			$subject = ( $_POST['comment_approved_subject'] );
 
 			update_option( 'comment_approved_message', $message );
 			update_option( 'comment_approved_subject', $subject );

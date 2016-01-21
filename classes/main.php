@@ -1,5 +1,22 @@
 <?php
+/*
+ * Security check
+ * Prevent direct access to the file.
+ *
+ * @since 1.5
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+
+
+/*
+ * Comment Approved
+ * The main plugin.
+ *
+ * @since 1.0
+ */
 class CommentApproved {
 
 	private $default_notification;
@@ -24,12 +41,9 @@ class CommentApproved {
 	}
 	
 	public function load_plugin_textdomain() {
-		
-		$locale = apply_filters('plugin_locale', get_locale(), "comment-approved");
-		
-		load_textdomain( 'comment-approved', WP_LANG_DIR.'/plugins/comment-approved-'.$locale.'.mo');
-	    load_plugin_textdomain( 'comment-approved', false, 'comment-approved/languages' ); 
-	    
+
+		load_plugin_textdomain( 'comment-approved' );
+
 	}
 
 	public static function instance() {
@@ -64,7 +78,7 @@ class CommentApproved {
 		$updated = false;
 
 		if ( isset( $_POST['comment_approved_settings'] ) && ! wp_verify_nonce( $_POST['_wpnonce'], 'comment_approved_settings' ) ) {
-			wp_die( 'Could not verify nonce' );
+			wp_die( __( 'Could not verify nonce', 'comment-approved' ) );
 		}
 
 		if ( isset( $_POST['comment_approved_settings'] ) ) {

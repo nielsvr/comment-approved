@@ -1,30 +1,52 @@
-=== Plugin Name ===
-Contributors: nielsvanrenselaar, kasparsd 
-Donate link: 
+=== Comment Approved ===
+Contributors: nielsvanrenselaar, kasparsd, ramiy
 Tags: comment, approved, notifcation, message, approval
-Requires at least: 3.0.0
-Tested up to: 4.3.1
-Stable tag: 1.4
+Requires at least: 3.0
+Tested up to: 4.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This WordPress plugin will sent out a customizable notification to a user that has left an comment on your site after approval of the comment. It's a tiny plugin which I hope to expand in the near future. Let me know if you miss something.
+This WordPress plugin will sent out a customizable notification to a user that has left an comment on your site after approval of the comment.
+
+It's a tiny plugin which I hope to expand in the near future. Let me know if you miss something.
 
 Icon by Max Steenbergen / maxsteenbergen.com
 
 == Installation ==
 
-1. Upload the folder `comment-approved` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The settings are accessible trough the settings menu in the sidebar
+= Installation =
+1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
+2. Search for "Comment Approved".
+3. Install the plugin by pressing the "Install" button.
+4. Activate the plugin by pressing the "Activate" button.
+5. The settings are accessible trough the settings menu in the sidebar.
+
+= Minimum Requirements =
+* WordPress version 3.0 or greater.
+* PHP version 5.2.4 or greater.
+* MySQL version 5.0 or greater.
+
+= Recommended Requirements =
+* The latest WordPress version.
+* PHP version 5.6 or greater.
+* MySQL version 5.5 or greater.
 
 == Screenshots ==
 
 1. The settings screen
 
 == Changelog ==
+
+= 1.5 =
+* Security: Prevent direct access to php files
+* Security: Prevent direct access to directories
+* Fix global translations support
+* Delete unused css and js files
+* Add missing i18n function
+* Update plugin readme file
 
 = 1.4.3 =
 * Better translation handling

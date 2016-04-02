@@ -26,7 +26,7 @@ class CommentApproved {
 
 		add_action( 'admin_menu', array( $this, 'add_default_settings' ) );
 		add_action( 'comment_unapproved_to_approved', array( $this, 'approve_comment_callback' ), 10 );
-		add_action( 'comment_form', array( $this, 'approve_comment_optin' ), 10, 1 );
+		add_action( 'comment_form', array( $this, 'approve_comment_option' ), 10, 1 );
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain') );
@@ -246,7 +246,7 @@ class CommentApproved {
 
 	}
 
-	public function approve_comment_optin( $post_id ) {
+	public function approve_comment_option( $post_id ) {
 
 		$default = get_option( 'comment_approved_default', 0 );
 

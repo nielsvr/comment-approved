@@ -11,7 +11,7 @@ Text Domain: comment-approved
 
 
 
-/*
+/**
  * Security check
  * Prevent direct access to the file.
  *
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-/*
+/**
  * Comment Approved
  * The main plugin.
  *

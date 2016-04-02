@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Security check
  * Prevent direct access to the file.
  *
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-/*
+/**
  * Comment Approved
  * The main plugin.
  *
@@ -19,9 +19,30 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class CommentApproved {
 
+	/**
+	 * Default Nnotification
+	 *
+	 * @since ?
+	 * @access private
+	 * @var string
+	 */
 	private $default_notification;
+
+	/**
+	 * Default Subject
+	 *
+	 * @since ?
+	 * @access private
+	 * @var string
+	 */
 	private $default_subject;
 
+	/**
+	 * __construct
+	 *
+	 * @since ?
+	 * @access protected
+	 */
 	protected function __construct() {
 
 		add_action( 'admin_menu', array( $this, 'add_default_settings' ) );
@@ -30,7 +51,7 @@ class CommentApproved {
 		add_action( 'wp_insert_comment', array( $this, 'approve_comment_posted' ), 10, 2 );
 		add_filter( 'edit_comment_misc_actions', array( $this, 'comment_notify_status' ), 10, 2 );
 		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain') );
-		
+
 		add_filter( 'option_comment_approved_subject', 'stripslashes' );
 		add_filter( 'option_comment_approved_message', 'stripslashes' );
 
@@ -42,13 +63,27 @@ class CommentApproved {
 		);
 
 	}
-	
+
+	/**
+	 * Internationalization
+	 * Load plugin translation files from api.wordpress.org.
+	 *
+	 * @since 1.5
+	 * @access public
+	 */
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain( 'comment-approved' );
 
 	}
 
+	/**
+	 * Instance
+	 *
+	 * @since ?
+	 * @access public
+	 * @static
+	 */
 	public static function instance() {
 
 		static $instance;
@@ -61,6 +96,12 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Add Default Settings
+	 *
+	 * @since ?
+	 * @access public
+	 */
 	public function add_default_settings() {
 
 		// @todo Move to settings API
@@ -76,6 +117,12 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Settings
+	 *
+	 * @since ?
+	 * @access public
+	 */
 	public function settings() {
 
 		$updated = false;
@@ -110,7 +157,7 @@ class CommentApproved {
 
 		$message = get_option( 'comment_approved_message' );
 		$subject = get_option( 'comment_approved_subject' );
-		$enable = get_option( 'comment_approved_enable', 1 );
+		$enable  = get_option( 'comment_approved_enable', 1 );
 		$default = get_option( 'comment_approved_default', 0 );
 
 		if ( empty( $message ) ) {
@@ -181,6 +228,16 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Should Notify Comment Author
+	 *
+	 * @since ?
+	 * @access public
+	 *
+	 * @param WP_Comment|int $comment Comment object or comment id.
+	 *
+	 * @return bool Whether to notify the author or not.
+	 */
 	public function should_notify_comment_author( $comment ) {
 
 		if ( is_object( $comment ) && isset( $comment->comment_ID ) ) {
@@ -200,6 +257,14 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Approve Comment Callback
+	 *
+	 * @since ?
+	 * @access public
+	 *
+	 * @param WP_Comment $comment Comment object.
+	 */
 	public function approve_comment_callback( $comment ) {
 
 		$enable = get_option( 'comment_approved_enable', 1 );
@@ -246,6 +311,14 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Approve Comment option
+	 *
+	 * @since ?
+	 * @access public
+	 *
+	 * @param int $post_id Post id.
+	 */
 	public function approve_comment_option( $post_id ) {
 
 		$default = get_option( 'comment_approved_default', 0 );
@@ -263,6 +336,15 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Approve Comment Posted
+	 *
+	 * @since ?
+	 * @access public
+	 *
+	 * @param int        $comment_id     Comment id.
+	 * @param WP_Comment $comment_object Comment object.
+	 */
 	public function approve_comment_posted( $comment_id, $comment_object ) {
 
 		if ( isset( $_POST['comment-approved_notify-me'] ) ) {
@@ -271,6 +353,17 @@ class CommentApproved {
 
 	}
 
+	/**
+	 * Comment Notify Status
+	 *
+	 * @since ?
+	 * @access public
+	 *
+	 * @param string     $html    Comment html.
+	 * @param WP_Comment $comment Comment object.
+	 *
+	 * @return string A message with the comment notification status.
+	 */
 	public function comment_notify_status( $html, $comment ) {
 
 		$enabled = get_option( 'comment_approved_enable', 1 );

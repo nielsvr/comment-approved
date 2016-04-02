@@ -306,3 +306,5 @@ class CommentApproved {
 	}
 
 }
+
+CommentApproved::instance();

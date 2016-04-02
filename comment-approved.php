@@ -30,5 +30,3 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0
  */
 include dirname( __FILE__ ) . '/classes/main.php';
-
-CommentApproved::instance();

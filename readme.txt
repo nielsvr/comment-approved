@@ -2,10 +2,12 @@
 Contributors: nielsvanrenselaar, kasparsd, ramiy
 Tags: comment, approved, notifcation, message, approval
 Requires at least: 3.0
-Stable tag: 1.5
 Tested up to: 4.5
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Notify a user when their comment is approved.
 
 == Description ==
 
@@ -32,13 +34,17 @@ Icon by Max Steenbergen / maxsteenbergen.com
 = Recommended Requirements =
 * The latest WordPress version.
 * PHP version 5.6 or greater.
-* MySQL version 5.5 or greater.
+* MySQL version 5.6 or greater.
 
 == Screenshots ==
 
 1. The settings screen
 
 == Changelog ==
+
+= 1.5.1 =
+* Add phpDocs
+* Tested up to WordPress 4.5
 
 = 1.5 =
 * Security: Prevent direct access to php files
@@ -67,7 +73,7 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 = 1.3.2.1 =
 * Typo fix
-* Compatible with WordPress 4.2.2
+* Tested up to WordPress 4.2.2
 
 = 1.3.2 =
 * Added option to change the e-mail from headers
@@ -93,8 +99,3 @@ Icon by Max Steenbergen / maxsteenbergen.com
 
 = 1.0 =
 * Initial release
-
-== Upgrade Notice ==
-
-= 1.0 =
-* First version

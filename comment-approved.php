@@ -3,7 +3,7 @@
 Plugin Name: Comment Approved
 Plugin URI:  https://wordpress.org/plugins/comment-approved/
 Description: Notify a user when their comment is approved.
-Version:     1.5
+Version:     1.5.1
 Author:      Niels van Renselaar
 Author URI:  https://nielsvr.com
 Text Domain: comment-approved
